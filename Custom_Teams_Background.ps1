@@ -6,7 +6,10 @@ Organization: 	byteben.com
 Filename:     	Custom_Teams_Background.ps1
 ===========================================================================
 
-1.0.0   28/04/2020  Ben Whitmore @byteben.com
+1.202804.02   28/04/2020  Ben Whitmore @byteben.com
+Added check that switch Install/Uninstall was used
+
+1.202804.01   28/04/2020  Ben Whitmore @byteben.com
 Initial Release
 
 .DESCRIPTION
@@ -42,6 +45,12 @@ Param (
     [Switch]$Install,
     [Switch]$UnInstall
 )
+
+#Check if the Install or Uninstall parameter was passed to the script
+if (1 -ne $Install.IsPresent + $Uninstall.IsPresent) {
+	Write-Warning "Please specify one of either the -Install or -Uninstall parameter when running this script"
+	exit 1
+}
 
 #Specify Teams custom background directory
 $TeamsDir = Join-Path $ENV:Appdata "Microsoft\Teams\Backgrounds\Uploads"
