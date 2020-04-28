@@ -1,9 +1,9 @@
 <#	
 ===========================================================================
-	 Created on:   	28/04/2020 22:08
-	 Created by:   	Ben Whitmore
-	 Organization: 	byteben.com
-     Filename:     	Custom_Teams_Background.ps1
+Created on:   	28/04/2020 22:08
+Created by:   	Ben Whitmore
+Organization: 	byteben.com
+Filename:     	Custom_Teams_Background.ps1
 ===========================================================================
 
 1.0.0   28/04/2020  Ben Whitmore @byteben.com
