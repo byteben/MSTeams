@@ -1,3 +1,3 @@
 # MSTeams
 
-Useful in SCCM App Detection methods. Script gets current user and browses profile path for executable
+Useful for MEMCM App Detection methods and Intune Win32App Script Deployments
