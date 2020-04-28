@@ -15,6 +15,9 @@ Script to download an image file from a URL and place in a users Microsoft Teams
 .EXAMPLE
 Custom_Teams_Background.ps1 -Install -BackgroundName "Teams_Back_1.jpg" -BackgroundUrl "https://byteben.com/bb/Downloads/Teams_Backgrounds/"
 
+.EXAMPLE
+Custom_Teams_Background.ps1 -Uninstall -BackgroundName "Teams_Back_1.jpg"
+
 .PARAMETER Install
 Switch parameter which must be used with the parameters BackgroundName and BackgroundURL but not Uninstall
 
