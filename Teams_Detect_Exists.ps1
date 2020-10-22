@@ -1,3 +1,4 @@
+
 $Profile = @{ }
 $ErrorActionPreference = "SilentlyContinue"
 $CurrentUser = Get-WmiObject -Class Win32_ComputerSystem | Select-Object -ExpandProperty UserName
@@ -16,3 +17,4 @@ $PathToTeams = Join-Path -Path $PathToUser -ChildPath "\AppData\Local\Microsoft\
 if (Test-Path -LiteralPath $PathToTeams)
 {
 	Write-Output "Installed"
+}
