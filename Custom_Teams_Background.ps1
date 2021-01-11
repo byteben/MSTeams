@@ -10,10 +10,10 @@ Filename:     	Custom_Teams_Background.ps1
 -Fixed an issue with the script not downloading content in some scenarios in PoSh 5 by using the "UseBasicParsing" option for invoke-webrequest and changing how the Full URL is created. Thanks/Credit to @DirkHaex
 -Changed URI formatting
 
-1.202804.02 - 28/04/20  Ben Whitmore @byteben.com
+1.202804.02 - 28/04/20
 -Added check that switch Install/Uninstall was used
 
-1.202804.01 - 28/04/20  Ben Whitmore @byteben.com
+1.202804.01 - 28/04/20
 -Initial Release
 
 .DESCRIPTION
@@ -35,7 +35,7 @@ Switch parameter which must be used with the parameter BackgroundName but not Ba
 Specify the image file name located at your URL e.g. "Teams_Back_1.jpg"
 
 .PARAMETER BackgroundUrl
-Specify the BackgroundURL where youe image file is located. URL should end with a forward slash. e.g. "https://byteben.com/bb/Downloads/Teams_Backgrounds/"
+Specify the BackgroundURL where your image file is located. URL should end with a forward slash. e.g. "https://byteben.com/bb/Downloads/Teams_Backgrounds/"
 
 #>
 
