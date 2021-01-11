@@ -6,11 +6,15 @@ Organization: 	byteben.com
 Filename:     	Custom_Teams_Background.ps1
 ===========================================================================
 
-1.202804.02   28/04/2020  Ben Whitmore @byteben.com
+1.3 - 11/01/21
+-Fixed an issue with the script not downloading content in some scenarios in PoSh 5 by using the "UseBasicParsing" option for invoke-webrequest and changing how the Full URL is created. Thanks/Credit to @DirkHaex
+-Changed URI formatting
+
+-1.202804.02 - 28/04/20  Ben Whitmore @byteben.com
 Added check that switch Install/Uninstall was used
 
-1.202804.01   28/04/2020  Ben Whitmore @byteben.com
-Initial Release
+1.202804.01 - 28/04/20  Ben Whitmore @byteben.com
+-Initial Release
 
 .DESCRIPTION
 Script to download an image file from a URL and place in a users Microsoft Teams Backgrounds\Uploads folder
@@ -41,7 +45,7 @@ Param (
     [Parameter(Mandatory = $True)]
     [string]$BackgroundName,
     [Parameter(Mandatory = $False)]
-    [uri] $BackgroundUrl,
+    [uri]$BackgroundUrl,
     [Switch]$Install,
     [Switch]$UnInstall
 )
@@ -64,13 +68,14 @@ If ($Install) {
     }
 
     #Create Full URL for background image
-    $FullUrl = [System.Uri]::new($BackgroundUrl, $BackgroundName)
+    $FullUrl = [Uri]::new([Uri]::new($BackgroundUrl), $BackgroundName).ToString()
     New-Object uri $FullUrl
+    
 
     #Test if URL is valid
     Try {
         #Attempt URL get and set Status Code variable
-        $URLRequest = Invoke-WebRequest -URI $FullURL -Method Head -ErrorAction SilentlyContinue
+        $URLRequest = Invoke-WebRequest -UseBasicParsing -URI $FullURL -ErrorAction SilentlyContinue
         $StatusCode = $URLRequest.StatusCode
     }
     Catch {
@@ -84,7 +89,7 @@ If ($Install) {
 
         #Attempt File download
         Try {
-            Invoke-WebRequest -Uri $FullUrl -OutFile $BackgroundDestination -ErrorAction SilentlyContinue
+            Invoke-WebRequest -UseBasicParsing -Uri $FullUrl -OutFile $BackgroundDestination -ErrorAction SilentlyContinue
 
             #If download was successful, test the file was saved to the correct directory
             If (Test-Path $BackgroundDestination) {
