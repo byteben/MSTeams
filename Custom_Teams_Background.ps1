@@ -10,8 +10,8 @@ Filename:     	Custom_Teams_Background.ps1
 -Fixed an issue with the script not downloading content in some scenarios in PoSh 5 by using the "UseBasicParsing" option for invoke-webrequest and changing how the Full URL is created. Thanks/Credit to @DirkHaex
 -Changed URI formatting
 
--1.202804.02 - 28/04/20  Ben Whitmore @byteben.com
-Added check that switch Install/Uninstall was used
+1.202804.02 - 28/04/20  Ben Whitmore @byteben.com
+-Added check that switch Install/Uninstall was used
 
 1.202804.01 - 28/04/20  Ben Whitmore @byteben.com
 -Initial Release
